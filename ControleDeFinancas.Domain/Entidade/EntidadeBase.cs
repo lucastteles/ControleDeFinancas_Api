@@ -11,12 +11,12 @@ namespace ControleDeFinancas.Domain.Entidade
         public EntidadeBase()
         {
             Id= Guid.NewGuid();
-            DataDespesa = DateTime.Now;
+            DataCadastro = DateTime.Now;
         }
 
 
         public Guid Id { get; set; }
 
-        public DateTime DataDespesa { get; set; }
+        public DateTime DataCadastro { get; set; }
     }
 }

@@ -12,12 +12,13 @@ namespace ControleDeFinancas.Domain.Entidade
         private Despesa() { }
 
 
-        public Despesa(string nome, decimal valor, DateTime vencimento)
+        public Despesa(string nome, decimal valor, DateTime vencimento, bool statusPagamento)
         {
             Nome = nome;
             Valor = valor;
             Vencimento = vencimento;
-            
+            StatusPagamento = statusPagamento;
+
             ValidarNome();
             ValidarMaximo100Caracteres();
             ValidarValor();
@@ -40,7 +41,7 @@ namespace ControleDeFinancas.Domain.Entidade
 
         private void ValidarMaximo100Caracteres()
         {
-            if(Nome.Length > 100)
+            if (Nome.Length > 100)
             {
                 throw new Exception("O campo nome não pode ser maior que 100 caracteres");
             }
@@ -48,18 +49,32 @@ namespace ControleDeFinancas.Domain.Entidade
 
         private void ValidarValor()
         {
-            if(Valor <= 0)
+            if (Valor <= 0)
             {
                 throw new Exception("O campo Valor não pode ser menor ou igual a zero");
             }
         }
         private void ValidarData()
         {
-            if(Vencimento < DateTime.Now)
+            if (Vencimento < DateTime.Now)
             {
                 throw new Exception("O campo Vencimento não pode ser menor do que a data atual ");
             }
         }
-      
+        public void AtualizarDadosDaDespesa(string nome, decimal valor, DateTime vencimento, bool statusPagamento)
+        {
+            Nome = nome;
+            Valor = valor;
+            Vencimento = vencimento;
+            StatusPagamento = statusPagamento;
+
+            ValidarNome();
+            ValidarMaximo100Caracteres();
+            ValidarValor();
+            ValidarData();
+
+
+        }
+
     }
 }

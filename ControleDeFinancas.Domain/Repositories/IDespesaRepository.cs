@@ -11,7 +11,7 @@ namespace ControleDeFinancas.Domain.Repositories
     {
         Task AdicionarDepesa(Despesa despesa);
         Task AtualizarDespesa(Despesa despesa);
-        Task<Despesa> ObterDespesa(Guid idDespesa);
+        Task<Despesa> ObterDespesaPorId(Guid idDespesa);
         Task<List<Despesa>> ObterTodasDepesas();
         public Task Deletar(Guid idDepesa);
     }
