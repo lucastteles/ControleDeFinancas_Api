@@ -11,6 +11,7 @@ namespace ControleDeFinancas.Application.Interface
     public interface IDespesaApplication
     {
         Task AdicionarDespesa(DespesaViewModel despesaVM);
+        Task<List<DespesaDto>> DespesaPorData(DateTime data);
         Task<List<DespesaDto>> ObterTodasDespesa();
         Task AtualizarDespesa(DespesaViewModel despesaVM);
         Task<DespesaDto> ObterDespesaPorId(Guid idDespesa);

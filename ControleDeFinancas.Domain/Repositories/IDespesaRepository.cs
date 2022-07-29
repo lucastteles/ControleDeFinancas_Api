@@ -10,6 +10,7 @@ namespace ControleDeFinancas.Domain.Repositories
     public interface IDespesaRepository
     {
         Task AdicionarDepesa(Despesa despesa);
+        Task<List<Despesa>> ObterDespesaPorMes(DateTime data);
         Task AtualizarDespesa(Despesa despesa);
         Task<Despesa> ObterDespesaPorId(Guid idDespesa);
         Task<List<Despesa>> ObterTodasDepesas();

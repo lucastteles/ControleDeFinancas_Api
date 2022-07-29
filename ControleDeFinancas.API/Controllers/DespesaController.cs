@@ -51,6 +51,14 @@ namespace ControleDeFinancas.API.Controllers
             return Ok(despesas);
         }
 
+        [HttpGet("ObterPorMes/{data}")]
+        public async Task<IActionResult> ObterPorMes(DateTime data)
+        {
+            var despesas = await _despesaApplication.DespesaPorData(data);
+
+            return Ok(despesas);
+        }
+
         [HttpPut]
         public async Task<IActionResult> Atualizar(DespesaViewModel despesaVm)
         {

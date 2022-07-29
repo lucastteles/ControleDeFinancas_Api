@@ -79,5 +79,27 @@ namespace ControleDeFinancas.Application.Application
         {
             await _despesaRepository.Deletar(idDespesa);
         }
+
+        public async Task<List<DespesaDto>> DespesaPorData(DateTime data)
+        {
+            var despesas = await _despesaRepository.ObterDespesaPorMes(data);
+
+            var listaDespesas = new List<DespesaDto>();
+
+            foreach (var despesa in despesas)
+            {
+                var despesaDto = new DespesaDto()
+                {
+                    Nome = despesa.Nome,
+                    Valor = despesa.Valor,
+                    StatusPagamento = despesa.StatusPagamento,
+                    Vencimento = despesa.Vencimento,
+                    DepesaId = despesa.Id
+                };
+                listaDespesas.Add(despesaDto);
+            }
+
+            return listaDespesas;
+        }
     }
 }
