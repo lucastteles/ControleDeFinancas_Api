@@ -1,0 +1,42 @@
+﻿@model ControleDeFinancas.Application.Dto.DespesaDto
+
+@{
+    ViewData["Title"] = "Detalhes do Produto";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Produto</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+         Valor
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+        <dt class = "col-sm-2">
+          Vencimento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vencimento)
+        </dd>
+         <dt class = "col-sm-2">
+          Status de Pagamento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StatusPagamento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DepesaId">Editar</a> |
+    <a asp-action="Index">Voltar</a>
+</div>

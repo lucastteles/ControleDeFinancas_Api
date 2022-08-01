@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleDeFinancas.Repo", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleDeFinancas.API", "ControleDeFinancas.API\ControleDeFinancas.API.csproj", "{B4EDC1D8-BEBE-4553-8399-6123B2410614}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleDeFinancas.Application", "ControleDeFinancas.Application\ControleDeFinancas.Application.csproj", "{149918ED-D41E-417B-A2BF-1C31152645CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleDeFinancas.Application", "ControleDeFinancas.Application\ControleDeFinancas.Application.csproj", "{149918ED-D41E-417B-A2BF-1C31152645CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleDeFinancas.MVC", "ControleDeFinancas.MVC\ControleDeFinancas.MVC.csproj", "{38B90BFE-D53C-4839-9260-8D402FA06F48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{149918ED-D41E-417B-A2BF-1C31152645CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{149918ED-D41E-417B-A2BF-1C31152645CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{149918ED-D41E-417B-A2BF-1C31152645CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38B90BFE-D53C-4839-9260-8D402FA06F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38B90BFE-D53C-4839-9260-8D402FA06F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38B90BFE-D53C-4839-9260-8D402FA06F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38B90BFE-D53C-4839-9260-8D402FA06F48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

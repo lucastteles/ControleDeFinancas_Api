@@ -13,7 +13,6 @@ namespace ControleDeFinancas.Application.Dto
         public decimal Valor { get; set; }
         public bool StatusPagamento { get; set; }
         public DateTime Vencimento { get; set; }
-        
 
     }
 }

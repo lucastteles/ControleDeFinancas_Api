@@ -1,0 +1,45 @@
+﻿@model ControleDeFinancas.Application.Dto.DespesaDto
+
+@{
+    ViewData["Title"] = "Deletar";
+}
+
+<h1>Deletar Produto</h1>
+
+<h3>Você tem certeza que deseja deletar este produto ?</h3>
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+          Nome
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+         Preço Venda
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+        <dt class = "col-sm-2">
+          Vencimento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vencimento)
+        </dd>       
+         <dt class = "col-sm-2">
+          Status de Pagamento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StatusPagamento)
+        </dd>       
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DepesaId" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>
