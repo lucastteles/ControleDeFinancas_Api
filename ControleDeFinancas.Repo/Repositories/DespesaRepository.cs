@@ -50,8 +50,6 @@ namespace ControleDeFinancas.Repo.Repositories
 
         public async Task<List<Despesa>> ObterDespesaPorMes(DateTime data)
         {
-            //await _despesaContext.Despesa.AddAsync();
-            //_despesaContext.SaveChanges();
             return await _despesaContext.Despesa
                                         .Where(x=> x.Vencimento.Date.Month ==  data.Date.Month)
                                         .ToListAsync();

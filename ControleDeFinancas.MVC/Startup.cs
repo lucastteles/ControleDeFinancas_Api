@@ -64,7 +64,7 @@ namespace ControleDeFinancas.MVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Despesa}/{action=Index}/{id?}");
             });
         }
     }

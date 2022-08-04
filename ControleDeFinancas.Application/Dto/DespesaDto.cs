@@ -11,8 +11,12 @@ namespace ControleDeFinancas.Application.Dto
         public Guid DepesaId { get; set; }
         public string Nome { get; set; }
         public decimal Valor { get; set; }
+        public bool DespesaVencida { get; set; }
         public bool StatusPagamento { get; set; }
-        public DateTime Vencimento { get; set; }
+        public string Vencimento { get; set; }
+        
+        
+
 
     }
-}
+} 

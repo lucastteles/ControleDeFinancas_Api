@@ -56,7 +56,7 @@ namespace ControleDeFinancas.Domain.Entidade
         }
         private void ValidarData()
         {
-            if (Vencimento < DateTime.Now)
+            if (Vencimento.Date < DateTime.Now.Date)
             {
                 throw new Exception("O campo Vencimento não pode ser menor do que a data atual ");
             }

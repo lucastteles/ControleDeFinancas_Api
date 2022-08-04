@@ -22,39 +22,15 @@ namespace ControleDeFinancas.MVC.Controllers
         // GET: DespesaController
         public async Task<IActionResult> Index(DespesaDto despesa, DateTime data)
         {
-            if (data == null )
-                return View(new List<ControleDeFinancas.Application.Dto.DespesaDto>());
+            if (data == null)
+                return View(new List<DespesaDto>());
 
             ViewData["dataInicial"] = data.ToString("yyyy-MM-dd");
-            
-
-            var venda = await _despesaApplication.DespesaPorData(data);
-
-            return View(venda);
 
 
-            //if (despesa.DepesaId != Guid.Empty)
-            //{
-            //    var despesaData = await _despesaApplication.DespesaPorData(despesa.Vencimento);
+            var despesaData = await _despesaApplication.DespesaPorData(data);
 
-            //    return View(despesaData);
-            //}
-            //if (data == null)
-            //    return View(new DespesaDto());
-            //ViewData["data"] = data.ToString("yyyy-MM-dd");
-
-            //return View();
-            //////////////
-
-            //var de
-            //if (data == null)
-            //    return View(new List<Application.Dto.DespesaDto>());
-
-            //ViewData["data"] = data.ToString("yyyy-MM-dd");
-
-            //var despesa = await _despesaApplication.DespesaPorData(data);
-
-            //return View(despesa);
+            return View(despesaData);
         }
 
         // GET: DespesaController/Details/5
@@ -77,7 +53,14 @@ namespace ControleDeFinancas.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DespesaViewModel despesaVM)
         {
-            await _despesaApplication.AdicionarDespesa(despesaVM);
+            try
+            {
+                await _despesaApplication.AdicionarDespesa(despesaVM);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.mensagemErro = ex.Message;
+            }
 
             return View();
         }

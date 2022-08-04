@@ -8,22 +8,24 @@
 
 <h1>Despesa</h1>
 
-
+<p>
+    <a asp-action="Create"> Cadastrar Despesa</a>
+</p>
 
 <div class="row">
     <div class="col-md-6">
         <form class="form-horizontal">
             <fieldset>
-                <legend><b>Vendas por Período</b></legend>
+                <legend><b>Despesa por Período</b></legend>
                 <div class="form-group">
                     <label for="data" class="col-lg-6 control-label">Data</label>
                     <div class="col-lg-10">
-                        <input type="date" name="data" class="form-control" />
+                        <input type="month" name="data" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-primary">Pesquisar</button>
                     </div>
                 </div>
             </fieldset>
@@ -54,9 +56,19 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
+                @if (item.DespesaVencida)
+                {
+                    <td style="color:red">
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                }
+
                 <td>
                     @Html.DisplayFor(modelItem => item.Valor)
                 </td>
@@ -67,7 +79,13 @@
                     @Html.DisplayFor(modelItem => item.StatusPagamento)
                 </td>
                 <td>
-                    <a class="btn btn-outline-danger" id="DespesaId" asp-controller="Venda"
+                    <a class="btn btn-outline-secondary" id="DespesaId" asp-controller="Despesa"
+                   asp-action="Edit" asp-route-id="@item.DepesaId">Editar</a>
+
+                    <a class="btn btn-outline-info" id="DespesaId" asp-controller="Despesa"
+                   asp-action="Details" asp-route-id="@item.DepesaId">Detalhes</a>
+
+                    <a class="btn btn-outline-danger" id="DespesaId" asp-controller="Despesa"
                    asp-action="Delete" asp-route-id="@item.DepesaId">Deletar</a>
 
                 </td>

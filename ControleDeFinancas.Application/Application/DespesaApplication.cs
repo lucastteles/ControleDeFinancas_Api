@@ -46,7 +46,7 @@ namespace ControleDeFinancas.Application.Application
                 Nome = despesa.Nome,
                 Valor = despesa.Valor,
                 StatusPagamento = despesa.StatusPagamento,
-                Vencimento = despesa.Vencimento,
+                Vencimento = despesa.Vencimento.ToString("dd/MM/yyyy"),
                 DepesaId = despesa.Id
             };
 
@@ -66,7 +66,7 @@ namespace ControleDeFinancas.Application.Application
                     Nome = despesa.Nome,
                     Valor = despesa.Valor,
                     StatusPagamento = despesa.StatusPagamento,
-                    Vencimento = despesa.Vencimento,
+                    Vencimento = despesa.Vencimento.ToString("dd/MM/yyyy"),
                     DepesaId = despesa.Id
                 };
 
@@ -82,24 +82,29 @@ namespace ControleDeFinancas.Application.Application
 
         public async Task<List<DespesaDto>> DespesaPorData(DateTime data)
         {
+
             var despesas = await _despesaRepository.ObterDespesaPorMes(data);
 
             var listaDespesas = new List<DespesaDto>();
 
             foreach (var despesa in despesas)
             {
+
                 var despesaDto = new DespesaDto()
                 {
                     Nome = despesa.Nome,
                     Valor = despesa.Valor,
                     StatusPagamento = despesa.StatusPagamento,
-                    Vencimento = despesa.Vencimento,
-                    DepesaId = despesa.Id
+                    Vencimento = despesa.Vencimento.ToString("dd/MM/yyyy"),
+                    DepesaId = despesa.Id,
+                    DespesaVencida = DateTime.Now.Date > despesa.Vencimento.Date && !despesa.StatusPagamento ? true : false
                 };
+
                 listaDespesas.Add(despesaDto);
             }
-
             return listaDespesas;
         }
+
+
     }
 }
