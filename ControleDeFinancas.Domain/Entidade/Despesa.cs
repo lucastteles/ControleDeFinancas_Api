@@ -22,7 +22,7 @@ namespace ControleDeFinancas.Domain.Entidade
             ValidarNome();
             ValidarMaximo100Caracteres();
             ValidarValor();
-            ValidarData();
+          
         }
 
 
@@ -54,13 +54,7 @@ namespace ControleDeFinancas.Domain.Entidade
                 throw new Exception("O campo Valor não pode ser menor ou igual a zero");
             }
         }
-        private void ValidarData()
-        {
-            if (Vencimento.Date < DateTime.Now.Date)
-            {
-                throw new Exception("O campo Vencimento não pode ser menor do que a data atual ");
-            }
-        }
+       
         public void AtualizarDadosDaDespesa(string nome, decimal valor, DateTime vencimento, bool statusPagamento)
         {
             Nome = nome;
@@ -71,7 +65,7 @@ namespace ControleDeFinancas.Domain.Entidade
             ValidarNome();
             ValidarMaximo100Caracteres();
             ValidarValor();
-            ValidarData();
+            
 
 
         }

@@ -28,9 +28,14 @@ namespace ControleDeFinancas.MVC.Controllers
             ViewData["dataInicial"] = data.ToString("yyyy-MM-dd");
 
 
-            var despesaData = await _despesaApplication.DespesaPorData(data);
+            var listaDespesas = await _despesaApplication.DespesaPorData(data);
+            ViewBag.ValorTotal = listaDespesas.Count > 0 ? listaDespesas.FirstOrDefault().DespesaTotal : 0;
 
-            return View(despesaData);
+            //return View();
+
+            //var despesaData = await _despesaApplication.DespesaPorData(data);
+
+            return View(listaDespesas);
         }
 
         // GET: DespesaController/Details/5

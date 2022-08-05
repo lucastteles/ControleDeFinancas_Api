@@ -84,8 +84,9 @@ namespace ControleDeFinancas.Application.Application
         {
 
             var despesas = await _despesaRepository.ObterDespesaPorMes(data);
-
             var listaDespesas = new List<DespesaDto>();
+
+           
 
             foreach (var despesa in despesas)
             {
@@ -97,6 +98,7 @@ namespace ControleDeFinancas.Application.Application
                     StatusPagamento = despesa.StatusPagamento,
                     Vencimento = despesa.Vencimento.ToString("dd/MM/yyyy"),
                     DepesaId = despesa.Id,
+                    DespesaTotal = despesas.Sum(c => c.Valor),
                     DespesaVencida = DateTime.Now.Date > despesa.Vencimento.Date && !despesa.StatusPagamento ? true : false
                 };
 
