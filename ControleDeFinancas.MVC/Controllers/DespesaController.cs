@@ -61,6 +61,7 @@ namespace ControleDeFinancas.MVC.Controllers
             try
             {
                 await _despesaApplication.AdicionarDespesa(despesaVM);
+                ViewBag.Mensagem = $"Despesa {despesaVM.Nome} adicionada com sucesso as {DateTime.Now}";
             }
             catch (Exception ex)
             {
